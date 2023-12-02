@@ -38,15 +38,18 @@
             this.textEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
+            this.label7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label7.Font = new System.Drawing.Font("Nirmala UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Fuchsia;
-            this.label7.Location = new System.Drawing.Point(528, 470);
+            this.label7.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label7.Location = new System.Drawing.Point(62, 437);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(125, 20);
             this.label7.TabIndex = 17;
@@ -59,7 +62,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.White;
             this.label6.ForeColor = System.Drawing.Color.Gray;
-            this.label6.Location = new System.Drawing.Point(502, 443);
+            this.label6.Location = new System.Drawing.Point(36, 410);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(189, 17);
             this.label6.TabIndex = 18;
@@ -68,19 +71,19 @@
             // connecterBtn
             // 
             this.connecterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.connecterBtn.BackColor = System.Drawing.Color.DeepPink;
+            this.connecterBtn.BackColor = System.Drawing.Color.DarkSalmon;
             this.connecterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.connecterBtn.FlatAppearance.BorderSize = 0;
             this.connecterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.connecterBtn.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.connecterBtn.ForeColor = System.Drawing.Color.White;
-            this.connecterBtn.Location = new System.Drawing.Point(483, 365);
+            this.connecterBtn.Location = new System.Drawing.Point(17, 332);
             this.connecterBtn.Name = "connecterBtn";
             this.connecterBtn.Size = new System.Drawing.Size(216, 35);
             this.connecterBtn.TabIndex = 16;
             this.connecterBtn.Text = "SE CONNECTER";
             this.connecterBtn.UseVisualStyleBackColor = false;
-            this.connecterBtn.Click += new System.EventHandler(this.ConnecterBtn_Click);
+            this.connecterBtn.Click += new System.EventHandler(this.ConnecterBtn_ClickAsync);
             // 
             // checkBox
             // 
@@ -90,7 +93,7 @@
             this.checkBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBox.ForeColor = System.Drawing.Color.SteelBlue;
-            this.checkBox.Location = new System.Drawing.Point(563, 269);
+            this.checkBox.Location = new System.Drawing.Point(97, 236);
             this.checkBox.Name = "checkBox";
             this.checkBox.Size = new System.Drawing.Size(135, 21);
             this.checkBox.TabIndex = 15;
@@ -103,8 +106,8 @@
             this.textPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.textPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textPassword.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textPassword.Location = new System.Drawing.Point(482, 230);
+            this.textPassword.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPassword.Location = new System.Drawing.Point(16, 197);
             this.textPassword.Multiline = true;
             this.textPassword.Name = "textPassword";
             this.textPassword.PasswordChar = '*';
@@ -118,7 +121,7 @@
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Navy;
-            this.label4.Location = new System.Drawing.Point(479, 210);
+            this.label4.Location = new System.Drawing.Point(13, 177);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 21);
             this.label4.TabIndex = 8;
@@ -129,8 +132,8 @@
             this.textEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(231)))), ((int)(((byte)(233)))));
             this.textEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textEmail.Font = new System.Drawing.Font("Nirmala UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEmail.Location = new System.Drawing.Point(482, 163);
+            this.textEmail.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEmail.Location = new System.Drawing.Point(16, 130);
             this.textEmail.Multiline = true;
             this.textEmail.Name = "textEmail";
             this.textEmail.Size = new System.Drawing.Size(216, 28);
@@ -143,7 +146,7 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Location = new System.Drawing.Point(479, 143);
+            this.label3.Location = new System.Drawing.Point(13, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 21);
             this.label3.TabIndex = 9;
@@ -157,12 +160,30 @@
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Crimson;
-            this.label1.Location = new System.Drawing.Point(477, 68);
+            this.label1.Location = new System.Drawing.Point(11, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 33);
             this.label1.TabIndex = 6;
             this.label1.Text = "Connexion";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.connecterBtn);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.textEmail);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.checkBox);
+            this.panel1.Controls.Add(this.textPassword);
+            this.panel1.Location = new System.Drawing.Point(429, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(250, 507);
+            this.panel1.TabIndex = 19;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // formLogin
             // 
@@ -172,25 +193,19 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(711, 544);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.connecterBtn);
-            this.Controls.Add(this.checkBox);
-            this.Controls.Add(this.textPassword);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textEmail);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Font = new System.Drawing.Font("Nirmala UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(164)))), ((int)(((byte)(165)))), ((int)(((byte)(169)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "formLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Se connecter";
+            this.Load += new System.EventHandler(this.formLogin_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -205,5 +220,6 @@
         private System.Windows.Forms.TextBox textEmail;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

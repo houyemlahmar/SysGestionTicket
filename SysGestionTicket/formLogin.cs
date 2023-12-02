@@ -17,16 +17,13 @@ namespace SysGestionTicket
     {
         private SqlConnection Con;
         private SqlCommand Cmd;
-        private DataTable dt;
-        private SqlDataAdapter sda;
         private string ConString;
         public formLogin()
         {
             InitializeComponent();
             ConString = "Data Source=dell\\sqlexpress;Initial Catalog=GestionTicket;Integrated Security=True";
             Con = new SqlConnection(ConString);
-            
-            
+                        
         }
 
         private void Label3_Click(object sender, EventArgs e)
@@ -39,25 +36,33 @@ namespace SysGestionTicket
 
         }
 
-        private void ConnecterBtn_Click(object sender, EventArgs e)
+        private async void ConnecterBtn_ClickAsync(object sender, EventArgs e)
         {
-          
-            Con.Open();
-            // string connecter = "INSERT INTO SignUpTbl VALUES ('" + textEmail.Text + "','" + textPassword.Text + "')";
-            string t = "SELECT * FROM SignUpTbl where e_mail like'" + textEmail.Text.ToString() +"' and MotDePasse like '"+textPassword.Text.ToString()+"'";
-                 Cmd = new SqlCommand(t, Con);
-          int x=Cmd.ExecuteNonQuery();
-            MessageBox.Show(" dfgfd"+x);
-            if (x>=0)
+            if (Con.State == ConnectionState.Closed)
             {
+                Con.Open();
+            }
+
+
+            // string connecter = "INSERT INTO SignUpTbl VALUES ('" + textEmail.Text + "','" + textPassword.Text + "')";
+            string connecter = "SELECT * FROM SignUpTbl where e_mail= '" + textEmail.Text +"' and MotDePasse= '"+textPassword.Text+"'";
+                 Cmd = new SqlCommand(connecter, Con);
+            SqlDataReader reader = await Cmd.ExecuteReaderAsync();
+            if (reader.Read()== true) {
                 new dashboard().Show();
                 this.Hide();
-            }
+
+            } 
+
             else { 
                 MessageBox.Show("E-mail ou mot de passe invalide", "Reéssayer", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 textEmail.Text = "";
                 textPassword.Text = "";
 
+            }
+            if (Con.State == ConnectionState.Open)
+            {
+                Con.Close();
             }
 
         }
@@ -69,7 +74,7 @@ namespace SysGestionTicket
             if (checkBox.Checked)
             {
                 textPassword.PasswordChar = '\0';
-               
+
             }
             else
             {
@@ -80,8 +85,18 @@ namespace SysGestionTicket
 
         private void label7_Click(object sender, EventArgs e)
         {
-            new formSign_up().Show();
+            new FormSign_up().Show();
             this.Hide();
+        }
+
+        private void formLogin_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -54,11 +54,18 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,6 +83,13 @@
     <Compile Include="dashboard.Designer.cs">
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="fonction.cs" />
+    <Compile Include="formPriorite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formPriorite.Designer.cs">
+      <DependentUpon>formPriorite.cs</DependentUpon>
+    </Compile>
     <Compile Include="formSign_up.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,8 +102,17 @@
     <Compile Include="formLogin.Designer.cs">
       <DependentUpon>formLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="formSign_up1.cs">
+    <Compile Include="formStatue.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStatue.Designer.cs">
+      <DependentUpon>formStatue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTicket.Designer.cs">
+      <DependentUpon>formTicket.cs</DependentUpon>
     </Compile>
     <Compile Include="functions.cs" />
     <Compile Include="gestion.Context.cs">
@@ -112,6 +135,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionTicketDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GestionTicketDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionTicketDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionTicketDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionTicketDataSet3.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SignUpTbl.cs">
@@ -120,11 +158,20 @@
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formPriorite.resx">
+      <DependentUpon>formPriorite.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formSign_up.resx">
       <DependentUpon>formSign_up.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formStatue.resx">
+      <DependentUpon>formStatue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTicket.resx">
+      <DependentUpon>formTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -134,6 +181,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="gestion.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -152,6 +200,39 @@
     </None>
     <None Include="GestionTicketDataSet.xss">
       <DependentUpon>GestionTicketDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet1.xsc">
+      <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionTicketDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionTicketDataSet1.xss">
+      <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet2.xsc">
+      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionTicketDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionTicketDataSet2.xss">
+      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet3.xsc">
+      <DependentUpon>GestionTicketDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionTicketDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionTicketDataSet3.xss">
+      <DependentUpon>GestionTicketDataSet3.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -193,6 +274,16 @@
       <DependentUpon>gestion.edmx</DependentUpon>
       <LastGenOutput>gestion.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\rename.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\notification1.png" />
+    <None Include="Resources\notifications.png" />
+    <None Include="Resources\sign up1.PNG" />
+    <None Include="Resources\lodout.png" />
+    <None Include="Resources\statistics.png" />
+    <None Include="Resources\prioritize.png" />
+    <None Include="Resources\rules.png" />
+    <None Include="Resources\cinema.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
