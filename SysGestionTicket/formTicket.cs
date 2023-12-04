@@ -16,12 +16,17 @@ namespace SysGestionTicket
     public partial class formTicket : Form
     {
         private string ConString = "Data Source=dell\\sqlexpress;Initial Catalog=GestionTicket;Integrated Security=True";
-        private int ticketIdEnCoursDeModification = -1; 
+        private int ticketIdEnCoursDeModification = -1;
+        private int idUtilisateurAuthentifie;
+        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker;
+
 
         public formTicket()
         {
             InitializeComponent();
-            
+            ListerTicket();
+            LoadComboBoxOptions();
+
         }
         
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -71,35 +76,37 @@ namespace SysGestionTicket
 
         private void btnCreer_Click(object sender, EventArgs e)
         {
-            string Num = txtNumTicket.Text;
+            int Id_utilisateur;
+            string NumTicket = txtNumTicket.Text;
             string Titre = txtTitre.Text;
             string Priorite = comboBoxPrio.Text;
             string Description = txtDescri.Text;
+            DateTime Date_Creation = DateTime.Today;
+         
 
-
-
-
-            if (string.IsNullOrWhiteSpace(Num) || string.IsNullOrWhiteSpace(Titre) || string.IsNullOrWhiteSpace(Priorite) || string.IsNullOrWhiteSpace(Description))
+            if (string.IsNullOrWhiteSpace(NumTicket) || string.IsNullOrWhiteSpace(Titre) || string.IsNullOrWhiteSpace(Priorite) || string.IsNullOrWhiteSpace(Description))
             {
                 MessageBox.Show("Veuillez remplir tous les champs du formulaire.", "Erreur de validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             try
             {
                 using (SqlConnection con = new SqlConnection(ConString))
                 {
                     con.Open();
 
-                    string query = "INSERT INTO TicketTbl (Numticket, Titre,Priorite,Statue, Description) VALUES (@NumTicket, @Titre,@Priorite,@statue, @Description)";
+                    string query = "INSERT INTO TicketTbl (Numticket, Titre, Priorite, Statue, Description,Date_Creation, Id_utilisateur) VALUES (@NumTicket, @Titre, @Priorite, @Statue, @Description,GETDATE(), @Id_utilisateur)";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@NumTicket", Num);
+                        cmd.Parameters.AddWithValue("@NumTicket", NumTicket);
                         cmd.Parameters.AddWithValue("@Titre", Titre);
                         cmd.Parameters.AddWithValue("@Priorite", Priorite);
                         cmd.Parameters.AddWithValue("@Description", Description);
                         cmd.Parameters.AddWithValue("@Statue", "Nouveau");
-
+                        cmd.Parameters.AddWithValue("@Id_utilisateur", idUtilisateurAuthentifie);
+                        cmd.Parameters.AddWithValue("@Date_Creation", Date_Creation);
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Ticket créé avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -121,10 +128,12 @@ namespace SysGestionTicket
                 {
                     con.Open();
 
-                    string query = "SELECT * FROM TicketTbl";
+                    string query = "SELECT * FROM TicketTbl WHERE Id_utilisateur = @Id_utilisateur";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
+                        cmd.Parameters.AddWithValue("@Id_utilisateur", idUtilisateurAuthentifie);
+
                         SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
                         DataTable dataTable = new DataTable();
                         dataAdapter.Fill(dataTable);
@@ -136,8 +145,8 @@ namespace SysGestionTicket
             {
                 MessageBox.Show("Erreur lors du chargement des tickets : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        
-    }
+
+        }
 
         private void guna2CirclePictureBox2_Click(object sender, EventArgs e)
         {
@@ -179,7 +188,7 @@ namespace SysGestionTicket
             txtDescri.Text = "";
         }
 
-        private void ModifierTicket(int ticketId)
+        private void ModifierTicket(int TicketId)
         {
             try
             {
@@ -187,13 +196,13 @@ namespace SysGestionTicket
                 {
                     connection.Open();
 
-                    string query = "SELECT * FROM Tickets WHERE ID = @TicketID";
+                    string query = "SELECT * FROM Tickets WHERE Id = @Id";
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand cmd = new SqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@TicketID", ticketId);
+                        cmd.Parameters.AddWithValue("@Id", TicketId);
 
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        using (SqlDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.Read())
                             {

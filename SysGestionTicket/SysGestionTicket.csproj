@@ -274,6 +274,8 @@
       <DependentUpon>gestion.edmx</DependentUpon>
       <LastGenOutput>gestion.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\search1.png" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\rename.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\notification1.png" />
