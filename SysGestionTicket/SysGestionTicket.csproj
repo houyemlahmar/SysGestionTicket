@@ -90,6 +90,12 @@
     <Compile Include="formAdmin.Designer.cs">
       <DependentUpon>formAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="formAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAgent.Designer.cs">
+      <DependentUpon>formAgent.cs</DependentUpon>
+    </Compile>
     <Compile Include="formPriorite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formAdmin.resx">
       <DependentUpon>formAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAgent.resx">
+      <DependentUpon>formAgent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPriorite.resx">
       <DependentUpon>formPriorite.cs</DependentUpon>

@@ -23,6 +23,7 @@ namespace SysGestionTicket
         public formTicket()
         {
             InitializeComponent();
+            dashboard1 = new dashboard();
 
 
         }
@@ -31,6 +32,7 @@ namespace SysGestionTicket
         {
 
         }
+        private dashboard dashboard1;
 
         private void formTicket_Load(object sender, EventArgs e)
         {
@@ -40,6 +42,8 @@ namespace SysGestionTicket
             ListerTicket();
             LoadComboBoxOptions();
             ClearFormFields();
+
+            MessageBox.Show(dashboard1.username, "gg");
 
         }
 

@@ -47,16 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lbl = new System.Windows.Forms.Label();
             this.guna2DataGridViewStatut = new Guna.UI2.WinForms.Guna2DataGridView();
-            this.gestionTicketDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.gestionTicketDataSet3 = new SysGestionTicket.GestionTicketDataSet3();
-            this.lblTousTickets = new System.Windows.Forms.Label();
-            this.btnFerme = new System.Windows.Forms.Button();
-            this.btnResolue = new System.Windows.Forms.Button();
-            this.btnEnCours = new System.Windows.Forms.Button();
-            this.btnOuverte = new System.Windows.Forms.Button();
-            this.gestionTicketDataSet2 = new SysGestionTicket.GestionTicketDataSet2();
-            this.ticketTblBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ticketTblTableAdapter = new SysGestionTicket.GestionTicketDataSet2TableAdapters.TicketTblTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numTicketDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.titreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,6 +55,16 @@
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idutilisateurDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ticketTblBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gestionTicketDataSet2 = new SysGestionTicket.GestionTicketDataSet2();
+            this.gestionTicketDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gestionTicketDataSet3 = new SysGestionTicket.GestionTicketDataSet3();
+            this.lblTousTickets = new System.Windows.Forms.Label();
+            this.btnFerme = new System.Windows.Forms.Button();
+            this.btnResolue = new System.Windows.Forms.Button();
+            this.btnEnCours = new System.Windows.Forms.Button();
+            this.btnOuverte = new System.Windows.Forms.Button();
+            this.ticketTblTableAdapter = new SysGestionTicket.GestionTicketDataSet2TableAdapters.TicketTblTableAdapter();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel4.SuspendLayout();
@@ -74,10 +74,10 @@
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewStatut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketTblBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet3BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketTblBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -225,12 +225,12 @@
             // 
             // guna2DataGridViewStatut
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(196)))));
             this.guna2DataGridViewStatut.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.guna2DataGridViewStatut.AutoGenerateColumns = false;
             this.guna2DataGridViewStatut.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(192)))), ((int)(((byte)(7)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -250,40 +250,100 @@
             this.idutilisateurDataGridViewTextBoxColumn});
             this.guna2DataGridViewStatut.DataSource = this.ticketTblBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(215)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridViewStatut.DefaultCellStyle = dataGridViewCellStyle3;
-            this.guna2DataGridViewStatut.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.guna2DataGridViewStatut.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(235)))), ((int)(((byte)(177)))));
             this.guna2DataGridViewStatut.Location = new System.Drawing.Point(235, 201);
             this.guna2DataGridViewStatut.Name = "guna2DataGridViewStatut";
             this.guna2DataGridViewStatut.RowHeadersVisible = false;
             this.guna2DataGridViewStatut.Size = new System.Drawing.Size(616, 293);
             this.guna2DataGridViewStatut.TabIndex = 22;
-            this.guna2DataGridViewStatut.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridViewStatut.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Ember;
+            this.guna2DataGridViewStatut.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(196)))));
             this.guna2DataGridViewStatut.ThemeStyle.AlternatingRowsStyle.Font = null;
             this.guna2DataGridViewStatut.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
             this.guna2DataGridViewStatut.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
             this.guna2DataGridViewStatut.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.guna2DataGridViewStatut.ThemeStyle.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2DataGridViewStatut.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridViewStatut.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            this.guna2DataGridViewStatut.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(235)))), ((int)(((byte)(177)))));
+            this.guna2DataGridViewStatut.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(192)))), ((int)(((byte)(7)))));
             this.guna2DataGridViewStatut.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.guna2DataGridViewStatut.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2DataGridViewStatut.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.guna2DataGridViewStatut.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.guna2DataGridViewStatut.ThemeStyle.HeaderStyle.Height = 4;
             this.guna2DataGridViewStatut.ThemeStyle.ReadOnly = false;
-            this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(215)))));
             this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
             this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.Height = 22;
-            this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(89)))));
+            this.guna2DataGridViewStatut.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // numTicketDataGridViewTextBoxColumn
+            // 
+            this.numTicketDataGridViewTextBoxColumn.DataPropertyName = "NumTicket";
+            this.numTicketDataGridViewTextBoxColumn.HeaderText = "NumTicket";
+            this.numTicketDataGridViewTextBoxColumn.Name = "numTicketDataGridViewTextBoxColumn";
+            // 
+            // titreDataGridViewTextBoxColumn
+            // 
+            this.titreDataGridViewTextBoxColumn.DataPropertyName = "Titre";
+            this.titreDataGridViewTextBoxColumn.HeaderText = "Titre";
+            this.titreDataGridViewTextBoxColumn.Name = "titreDataGridViewTextBoxColumn";
+            // 
+            // prioriteDataGridViewTextBoxColumn
+            // 
+            this.prioriteDataGridViewTextBoxColumn.DataPropertyName = "Priorite";
+            this.prioriteDataGridViewTextBoxColumn.HeaderText = "Priorite";
+            this.prioriteDataGridViewTextBoxColumn.Name = "prioriteDataGridViewTextBoxColumn";
+            // 
+            // statutDataGridViewTextBoxColumn
+            // 
+            this.statutDataGridViewTextBoxColumn.DataPropertyName = "Statut";
+            this.statutDataGridViewTextBoxColumn.HeaderText = "Statut";
+            this.statutDataGridViewTextBoxColumn.Name = "statutDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // dateCreationDataGridViewTextBoxColumn
+            // 
+            this.dateCreationDataGridViewTextBoxColumn.DataPropertyName = "Date_Creation";
+            this.dateCreationDataGridViewTextBoxColumn.HeaderText = "Date_Creation";
+            this.dateCreationDataGridViewTextBoxColumn.Name = "dateCreationDataGridViewTextBoxColumn";
+            // 
+            // idutilisateurDataGridViewTextBoxColumn
+            // 
+            this.idutilisateurDataGridViewTextBoxColumn.DataPropertyName = "Id_utilisateur";
+            this.idutilisateurDataGridViewTextBoxColumn.HeaderText = "Id_utilisateur";
+            this.idutilisateurDataGridViewTextBoxColumn.Name = "idutilisateurDataGridViewTextBoxColumn";
+            // 
+            // ticketTblBindingSource
+            // 
+            this.ticketTblBindingSource.DataMember = "TicketTbl";
+            this.ticketTblBindingSource.DataSource = this.gestionTicketDataSet2;
+            // 
+            // gestionTicketDataSet2
+            // 
+            this.gestionTicketDataSet2.DataSetName = "GestionTicketDataSet2";
+            this.gestionTicketDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // gestionTicketDataSet3BindingSource
             // 
@@ -366,68 +426,9 @@
             this.btnOuverte.UseVisualStyleBackColor = false;
             this.btnOuverte.Click += new System.EventHandler(this.btnOuverte_Click_1);
             // 
-            // gestionTicketDataSet2
-            // 
-            this.gestionTicketDataSet2.DataSetName = "GestionTicketDataSet2";
-            this.gestionTicketDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // ticketTblBindingSource
-            // 
-            this.ticketTblBindingSource.DataMember = "TicketTbl";
-            this.ticketTblBindingSource.DataSource = this.gestionTicketDataSet2;
-            // 
             // ticketTblTableAdapter
             // 
             this.ticketTblTableAdapter.ClearBeforeFill = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // numTicketDataGridViewTextBoxColumn
-            // 
-            this.numTicketDataGridViewTextBoxColumn.DataPropertyName = "NumTicket";
-            this.numTicketDataGridViewTextBoxColumn.HeaderText = "NumTicket";
-            this.numTicketDataGridViewTextBoxColumn.Name = "numTicketDataGridViewTextBoxColumn";
-            // 
-            // titreDataGridViewTextBoxColumn
-            // 
-            this.titreDataGridViewTextBoxColumn.DataPropertyName = "Titre";
-            this.titreDataGridViewTextBoxColumn.HeaderText = "Titre";
-            this.titreDataGridViewTextBoxColumn.Name = "titreDataGridViewTextBoxColumn";
-            // 
-            // prioriteDataGridViewTextBoxColumn
-            // 
-            this.prioriteDataGridViewTextBoxColumn.DataPropertyName = "Priorite";
-            this.prioriteDataGridViewTextBoxColumn.HeaderText = "Priorite";
-            this.prioriteDataGridViewTextBoxColumn.Name = "prioriteDataGridViewTextBoxColumn";
-            // 
-            // statutDataGridViewTextBoxColumn
-            // 
-            this.statutDataGridViewTextBoxColumn.DataPropertyName = "Statut";
-            this.statutDataGridViewTextBoxColumn.HeaderText = "Statut";
-            this.statutDataGridViewTextBoxColumn.Name = "statutDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // dateCreationDataGridViewTextBoxColumn
-            // 
-            this.dateCreationDataGridViewTextBoxColumn.DataPropertyName = "Date_Creation";
-            this.dateCreationDataGridViewTextBoxColumn.HeaderText = "Date_Creation";
-            this.dateCreationDataGridViewTextBoxColumn.Name = "dateCreationDataGridViewTextBoxColumn";
-            // 
-            // idutilisateurDataGridViewTextBoxColumn
-            // 
-            this.idutilisateurDataGridViewTextBoxColumn.DataPropertyName = "Id_utilisateur";
-            this.idutilisateurDataGridViewTextBoxColumn.HeaderText = "Id_utilisateur";
-            this.idutilisateurDataGridViewTextBoxColumn.Name = "idutilisateurDataGridViewTextBoxColumn";
             // 
             // formStatut
             // 
@@ -463,10 +464,10 @@
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewStatut)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ticketTblBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet3BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ticketTblBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

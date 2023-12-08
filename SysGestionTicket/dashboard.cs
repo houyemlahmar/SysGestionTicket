@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data.SqlClient;
+using System.Data;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -8,6 +10,10 @@ namespace SysGestionTicket
 {
     public partial class dashboard : Form
     {
+        private string conString;
+
+        public object Id_utilisateur { get; private set; }
+
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
 
         private static extern IntPtr CreateRoundRectRgn
@@ -56,17 +62,10 @@ namespace SysGestionTicket
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -105,7 +104,11 @@ namespace SysGestionTicket
             this.Hide();
         }
 
-
+        public string username
+        {
+            get { return label4.Text; } 
+            set { label4.Text = value; }
+        }
 
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -207,7 +210,24 @@ namespace SysGestionTicket
 
         private void label4_Click(object sender, EventArgs e)
         {
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                con.Open();
 
+                // 2. Créer une commande SQL pour récupérer le nom de l'utilisateur
+                string query = "SELECT nom FROM TicketTbl WHERE Id_utilisateur = @Id_utilisateur"; // Remplacez par votre propre requête SQL et table
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    // Remplacez "@id" par le paramètre approprié pour identifier l'utilisateur
+                    cmd.Parameters.AddWithValue("@Id_utilisateur", Id_utilisateur);
+
+                    // 3. Exécuter la commande et récupérer le nom de l'utilisateur
+                    string nom = (string)cmd.ExecuteScalar();
+
+                    // 4. Mettre à jour le label avec le nom de l'utilisateur
+                    label4.Text = nom;
+                }
+            }
         }
     }
 }

@@ -117,8 +117,6 @@ namespace SysGestionTicket
             dtr = SortedDataView.ToTable();
             guna2DataGridViewPrio.DataSource = dtr;
             lblTousTickets1.Text = "Tickets de faible priorité";
-
-
         }
 
         private void lblTousTickets_Click(object sender, EventArgs e)
