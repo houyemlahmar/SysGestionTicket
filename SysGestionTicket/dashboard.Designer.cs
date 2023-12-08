@@ -35,7 +35,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.gunabtnTicket = new Guna.UI2.WinForms.Guna2Button();
-            this.gunabtnStatue = new Guna.UI2.WinForms.Guna2Button();
+            this.gunabtnStatut = new Guna.UI2.WinForms.Guna2Button();
             this.gunabtnPriorite = new Guna.UI2.WinForms.Guna2Button();
             this.gunabtnNotif = new Guna.UI2.WinForms.Guna2Button();
             this.gunabtnDecnx = new Guna.UI2.WinForms.Guna2Button();
@@ -89,7 +89,7 @@
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.LightCyan;
             this.flowLayoutPanel1.Controls.Add(this.panel1);
             this.flowLayoutPanel1.Controls.Add(this.gunabtnTicket);
-            this.flowLayoutPanel1.Controls.Add(this.gunabtnStatue);
+            this.flowLayoutPanel1.Controls.Add(this.gunabtnStatut);
             this.flowLayoutPanel1.Controls.Add(this.gunabtnPriorite);
             this.flowLayoutPanel1.Controls.Add(this.gunabtnNotif);
             this.flowLayoutPanel1.Controls.Add(this.gunabtnDecnx);
@@ -119,26 +119,26 @@
             this.gunabtnTicket.Click += new System.EventHandler(this.guna2Button3_Click);
             this.gunabtnTicket.Leave += new System.EventHandler(this.gunabtnTicket_leave);
             // 
-            // gunabtnStatue
+            // gunabtnStatut
             // 
-            this.gunabtnStatue.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunabtnStatue.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.gunabtnStatue.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.gunabtnStatue.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.gunabtnStatue.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.gunabtnStatue.FillColor = System.Drawing.Color.LightCyan;
-            this.gunabtnStatue.Font = new System.Drawing.Font("Lucida Fax", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gunabtnStatue.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.gunabtnStatue.Image = global::SysGestionTicket.Properties.Resources.rules;
-            this.gunabtnStatue.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.gunabtnStatue.Location = new System.Drawing.Point(3, 150);
-            this.gunabtnStatue.Name = "gunabtnStatue";
-            this.gunabtnStatue.Size = new System.Drawing.Size(135, 37);
-            this.gunabtnStatue.TabIndex = 23;
-            this.gunabtnStatue.Text = "Statue";
-            this.gunabtnStatue.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.gunabtnStatue.Click += new System.EventHandler(this.guna2Button2_Click);
-            this.gunabtnStatue.Leave += new System.EventHandler(this.gunabtnStatue_leave);
+            this.gunabtnStatut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunabtnStatut.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.gunabtnStatut.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.gunabtnStatut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.gunabtnStatut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.gunabtnStatut.FillColor = System.Drawing.Color.LightCyan;
+            this.gunabtnStatut.Font = new System.Drawing.Font("Lucida Fax", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gunabtnStatut.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.gunabtnStatut.Image = global::SysGestionTicket.Properties.Resources.rules;
+            this.gunabtnStatut.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gunabtnStatut.Location = new System.Drawing.Point(3, 150);
+            this.gunabtnStatut.Name = "gunabtnStatut";
+            this.gunabtnStatut.Size = new System.Drawing.Size(135, 37);
+            this.gunabtnStatut.TabIndex = 23;
+            this.gunabtnStatut.Text = "Statut";
+            this.gunabtnStatut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gunabtnStatut.Click += new System.EventHandler(this.guna2Button2_Click);
+            this.gunabtnStatut.Leave += new System.EventHandler(this.gunabtnStatue_leave);
             // 
             // gunabtnPriorite
             // 
@@ -261,7 +261,7 @@
         private Guna.UI2.WinForms.Guna2Button gunabtnNotif;
         private Guna.UI2.WinForms.Guna2AnimateWindow guna2AnimateWindow1;
         private Guna.UI2.WinForms.Guna2Button gunabtnTicket;
-        private Guna.UI2.WinForms.Guna2Button gunabtnStatue;
+        private Guna.UI2.WinForms.Guna2Button gunabtnStatut;
         private Guna.UI2.WinForms.Guna2Button gunabtnPriorite;
         private Guna.UI2.WinForms.Guna2Button gunabtnDecnx;
     }

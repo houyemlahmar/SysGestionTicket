@@ -44,7 +44,6 @@ namespace SysGestionTicket
             }
 
 
-            // string connecter = "INSERT INTO SignUpTbl VALUES ('" + textEmail.Text + "','" + textPassword.Text + "')";
             string connecter = "SELECT * FROM SignUpTbl where e_mail= '" + textEmail.Text +"' and MotDePasse= '"+textPassword.Text+"'";
                  Cmd = new SqlCommand(connecter, Con);
             SqlDataReader reader = await Cmd.ExecuteReaderAsync();

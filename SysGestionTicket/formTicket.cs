@@ -1,34 +1,49 @@
 ﻿using Guna.UI2.WinForms;
+using Guna.UI2.WinForms.Suite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Xml.Linq;
+using TheArtOfDevHtmlRenderer.Adapters;
+using static Guna.UI2.Native.WinApi;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace SysGestionTicket
 {
     public partial class formTicket : Form
     {
-        private string ConString = "Data Source=dell\\sqlexpress;Initial Catalog=GestionTicket;Integrated Security=True";
-        private int ticketIdEnCoursDeModification = -1;
-        private int idUtilisateurAuthentifie;
-        private Guna.UI2.WinForms.Guna2DateTimePicker guna2DateTimePicker;
+        private string Con = "Data Source=dell\\sqlexpress;Initial Catalog=GestionTicket;Integrated Security=True";
+
+
+        private SqlCommand Cmd = new SqlCommand();
+        private DataTable dt = new DataTable();
+        private DataTable dtt = new DataTable();
+        private SqlDataAdapter da = new SqlDataAdapter();
+        private DataSet ds = new DataSet();
+
+        int Id_utilisateur = 1;
+
 
 
         public formTicket()
         {
             InitializeComponent();
-            ListerTicket();
-            LoadComboBoxOptions();
+
 
         }
-        
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -38,8 +53,10 @@ namespace SysGestionTicket
         {
             // TODO: cette ligne de code charge les données dans la table 'gestionTicketDataSet3.TicketTbl'. Vous pouvez la déplacer ou la supprimer selon les besoins.
             this.ticketTblTableAdapter.Fill(this.gestionTicketDataSet3.TicketTbl);
-            
-
+            ListerTicket();
+            LoadComboBoxOptions();
+            ClearFormFields();
+           
         }
 
         private void txtRecherche_TextChanged(object sender, EventArgs e)
@@ -66,37 +83,57 @@ namespace SysGestionTicket
         {
 
         }
-        
         private void dataGridView1_CellContentClick_2(object sender, DataGridViewCellEventArgs e)
         {
-            
+
 
 
         }
 
         private void btnCreer_Click(object sender, EventArgs e)
         {
-            int Id_utilisateur;
             string NumTicket = txtNumTicket.Text;
             string Titre = txtTitre.Text;
             string Priorite = comboBoxPrio.Text;
             string Description = txtDescri.Text;
             DateTime Date_Creation = DateTime.Today;
-         
 
-            if (string.IsNullOrWhiteSpace(NumTicket) || string.IsNullOrWhiteSpace(Titre) || string.IsNullOrWhiteSpace(Priorite) || string.IsNullOrWhiteSpace(Description))
+            SqlDataAdapter da = new SqlDataAdapter("SELECT NumTicket from TicketTbl where NumTicket='" + txtNumTicket.Text + "' ", Con);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if (txtNumTicket.Text.Trim().Length == 0)
             {
-                MessageBox.Show("Veuillez remplir tous les champs du formulaire.", "Erreur de validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Champs NumTicket est vide!", "Erreur de validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (txtTitre.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Champs Titre est vide!", "Erreur de validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (txtDescri.Text.Trim().Length == 0)
+            {
+                MessageBox.Show("Champs Description est vide!", "Erreur de validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (comboBoxPrio.Text == "")
+            {
+                MessageBox.Show("Choisit une priorité!", "Erreur de validation", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (dt.Rows.Count >= 1)
+            {
+                MessageBox.Show("Ticket déjà exist!", "Crér un nouveau Ticket", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             try
             {
-                using (SqlConnection con = new SqlConnection(ConString))
+                using (SqlConnection con = new SqlConnection(Con))
                 {
                     con.Open();
 
-                    string query = "INSERT INTO TicketTbl (Numticket, Titre, Priorite, Statue, Description,Date_Creation, Id_utilisateur) VALUES (@NumTicket, @Titre, @Priorite, @Statue, @Description,GETDATE(), @Id_utilisateur)";
+                    string query = "INSERT INTO TicketTbl (Numticket, Titre, Priorite, Statue, Description,Date_Creation, Id_utilisateur)" + " VALUES (@NumTicket, @Titre, @Priorite, @Statue, @Description,GETDATE(), @Id_utilisateur)";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -105,12 +142,27 @@ namespace SysGestionTicket
                         cmd.Parameters.AddWithValue("@Priorite", Priorite);
                         cmd.Parameters.AddWithValue("@Description", Description);
                         cmd.Parameters.AddWithValue("@Statue", "Nouveau");
-                        cmd.Parameters.AddWithValue("@Id_utilisateur", idUtilisateurAuthentifie);
+                        cmd.Parameters.AddWithValue("@Id_utilisateur", Id_utilisateur);
                         cmd.Parameters.AddWithValue("@Date_Creation", Date_Creation);
                         cmd.ExecuteNonQuery();
 
                         MessageBox.Show("Ticket créé avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        con.Close();
+                        var button1 = new DataGridViewButtonColumn();
+                        var button2 = new DataGridViewButtonColumn();
+                        button1.Name = "ModifierButton";
+                        button1.HeaderText = button2.HeaderText = "Action";
+                        button1.Text = "Modifier";
+                        button1.UseColumnTextForButtonValue = true;
+                        this.ListeTicket.Columns.Add(button1);
+
+                        button2.Name = "supprimerButton";
+                        button2.Text = "Supprimer";
+                        button2.UseColumnTextForButtonValue = true;
+                        this.ListeTicket.Columns.Add(button2);
+
                         ListerTicket();
+                        ClearFormFields();
                     }
                 }
             }
@@ -124,7 +176,7 @@ namespace SysGestionTicket
         {
             try
             {
-                using (SqlConnection con = new SqlConnection(ConString))
+                using (SqlConnection con = new SqlConnection(Con))
                 {
                     con.Open();
 
@@ -132,12 +184,14 @@ namespace SysGestionTicket
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
-                        cmd.Parameters.AddWithValue("@Id_utilisateur", idUtilisateurAuthentifie);
+                        cmd.Parameters.AddWithValue("@Id_utilisateur", Id_utilisateur);
 
-                        SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-                        DataTable dataTable = new DataTable();
-                        dataAdapter.Fill(dataTable);
-                        ListeTicket.DataSource = dataTable;
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        ListeTicket.DataSource = dt;
+                        
+                        con.Close();
                     }
                 }
             }
@@ -150,28 +204,33 @@ namespace SysGestionTicket
 
         private void guna2CirclePictureBox2_Click(object sender, EventArgs e)
         {
-            
-            if (ticketIdEnCoursDeModification == -1)
-            {
-                MessageBox.Show("Ticket créé avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Ticket modifié avec succès!", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ticketIdEnCoursDeModification = -1;
-            }
-            ClearFormFields();
-            ListerTicket();
+
+
         }
         private void ListeTicket_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
+            if (ListeTicket.Columns[e.ColumnIndex].Name == "SupprimerButton ")
             {
-                ticketIdEnCoursDeModification = Convert.ToInt32(ListeTicket.Rows[e.RowIndex].Cells["Id"].Value);
+                if (ListeTicket.Rows.Count < 2)
+                {
+                    MessageBox.Show(" La base de donnée ne peut pas être vide! Ajouter un ticket pour que vous puisse le supprimer");
+                    return;
+                }
+                else
+                {
+                    if (MessageBox.Show("Voulez_vous le supprimer ? ", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        int i = ListeTicket.CurrentRow.Index;
+                        ds = new DataSet();
+                        da = new SqlDataAdapter("DELETE FROM TicketTbl where Id =  '" + ListeTicket[0, i].Value.ToString() + "'", Con);
 
-                ModifierTicket(ticketIdEnCoursDeModification);
+                        ListerTicket();
+                    }
+                }
             }
         }
+
+
         private void LoadComboBoxOptions()
         {
             comboBoxPrio.Items.Add("Faible");
@@ -184,42 +243,13 @@ namespace SysGestionTicket
         {
             txtNumTicket.Text = "";
             txtTitre.Text = "";
-            comboBoxPrio.SelectedIndex=-1;
+            comboBoxPrio.SelectedIndex = -1;
             txtDescri.Text = "";
         }
 
         private void ModifierTicket(int TicketId)
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(ConString))
-                {
-                    connection.Open();
 
-                    string query = "SELECT * FROM Tickets WHERE Id = @Id";
-
-                    using (SqlCommand cmd = new SqlCommand(query, connection))
-                    {
-                        cmd.Parameters.AddWithValue("@Id", TicketId);
-
-                        using (SqlDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                txtNumTicket.Text = reader["NumTicket"].ToString();
-                                txtTitre.Text = reader["Titre"].ToString();
-                                txtDescri.Text = reader["Description"].ToString();
-                                comboBoxPrio.Text = reader["Priorite"].ToString();
-
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erreur lors du chargement des détails du ticket pour modification : " + ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
@@ -231,6 +261,22 @@ namespace SysGestionTicket
         {
 
         }
+       
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
+        {
+            ListeTicket.Columns.Clear();
+            dtt = new DataTable();
+            // ds = new DataSetO;
+            //adapter = new MySqlDataAdapter("select from tickets", con)
+            //adapter.Fill(ds, "tickets");
+            //datagridTickets.DataSource = ds;
+            //datagridTickets.DataMember = "tickets";
+            da = new SqlDataAdapter("select * from TicketTbl", Con);
+
+            ListeTicket.DataSource = dtt;
+            DataView dv = dtt.DefaultView;
+            dv.RowFilter = string.Format("NumTicket like txtRecherche.Text");
+            ListeTicket.DataSource = dv.ToTable();
+        }
     }
-    
 }

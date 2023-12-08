@@ -16,8 +16,6 @@ namespace SysGestionTicket
     {
         private SqlConnection Con;
         private SqlCommand Cmd;
-        private DataTable dt;
-        private SqlDataAdapter sda;
         private string ConString;
         public FormSign_up()
         {

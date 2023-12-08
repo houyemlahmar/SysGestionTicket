@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SysGestionTicket
 {
-    public partial class formStatue : Form
+    public partial class formNotif : Form
     {
-        public formStatue()
+        public formNotif()
         {
             InitializeComponent();
         }

@@ -130,20 +130,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gestion.edmx</DependentUpon>
     </Compile>
-    <Compile Include="GestionTicketDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionTicketDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="GestionTicketDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="GestionTicketDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
     </Compile>
     <Compile Include="GestionTicketDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -190,17 +180,6 @@
     <None Include="gestion.edmx.diagram">
       <DependentUpon>gestion.edmx</DependentUpon>
     </None>
-    <None Include="GestionTicketDataSet.xsc">
-      <DependentUpon>GestionTicketDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="GestionTicketDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionTicketDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionTicketDataSet.xss">
-      <DependentUpon>GestionTicketDataSet.xsd</DependentUpon>
-    </None>
     <None Include="GestionTicketDataSet1.xsc">
       <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
     </None>
@@ -211,17 +190,6 @@
     </None>
     <None Include="GestionTicketDataSet1.xss">
       <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="GestionTicketDataSet2.xsc">
-      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="GestionTicketDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GestionTicketDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="GestionTicketDataSet2.xss">
-      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
     </None>
     <None Include="GestionTicketDataSet3.xsc">
       <DependentUpon>GestionTicketDataSet3.xsd</DependentUpon>
@@ -274,6 +242,7 @@
       <DependentUpon>gestion.edmx</DependentUpon>
       <LastGenOutput>gestion.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\report.png" />
     <None Include="Resources\search1.png" />
     <None Include="Resources\search.png" />
     <None Include="Resources\rename.png" />

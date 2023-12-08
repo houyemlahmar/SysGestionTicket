@@ -152,12 +152,12 @@ namespace SysGestionTicket
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Height = gunabtnStatue.Height;
-            flowLayoutPanel1.Top = gunabtnStatue.Top;
-            gunabtnStatue.BackColor = Color.FromArgb(46, 51, 73);
+            flowLayoutPanel1.Height = gunabtnStatut.Height;
+            flowLayoutPanel1.Top = gunabtnStatut.Top;
+            gunabtnStatut.BackColor = Color.FromArgb(46, 51, 73);
 
             this.panelForm.Controls.Clear();
-            formStatue formTicket_vrb = new formStatue() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            formStatut formTicket_vrb = new formStatut() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             formTicket_vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelForm.Controls.Add(formTicket_vrb);
             formTicket_vrb.Show();
@@ -192,7 +192,7 @@ namespace SysGestionTicket
 
         private void gunabtnStatue_leave(object sender, EventArgs e)
         {
-            gunabtnStatue.BackColor = Color.FromArgb(24, 30, 54);
+            gunabtnStatut.BackColor = Color.FromArgb(24, 30, 54);
         }
 
         private void gunabtnPriorite_leave(object sender, EventArgs e)

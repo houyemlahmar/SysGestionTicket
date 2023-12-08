@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formStatue));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,7 +38,7 @@
             this.btnResolue = new System.Windows.Forms.Button();
             this.btnFerme = new System.Windows.Forms.Button();
             this.lblStatue = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxStatue = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -51,7 +52,11 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.lblTousTickets = new System.Windows.Forms.Label();
+            this.guna2DataGridViewStatue = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.gestionTicketDataSet3BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gestionTicketDataSet3 = new SysGestionTicket.GestionTicketDataSet3();
+            this.ticketTblTableAdapter = new SysGestionTicket.GestionTicketDataSet3TableAdapters.TicketTblTableAdapter();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
@@ -60,7 +65,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewStatue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet3BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet3)).BeginInit();
             this.SuspendLayout();
             // 
             // btnOuverte
@@ -76,10 +83,12 @@
             this.btnOuverte.TabIndex = 0;
             this.btnOuverte.Text = "Ouverte";
             this.btnOuverte.UseVisualStyleBackColor = false;
+            this.btnOuverte.Click += new System.EventHandler(this.btnOuverte_Click);
             // 
             // btnEncours
             // 
             this.btnEncours.BackColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEncours.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEncours.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEncours.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEncours.ForeColor = System.Drawing.Color.White;
@@ -89,10 +98,12 @@
             this.btnEncours.TabIndex = 0;
             this.btnEncours.Text = "En cours";
             this.btnEncours.UseVisualStyleBackColor = false;
+            this.btnEncours.Click += new System.EventHandler(this.btnEncours_Click);
             // 
             // btnResolue
             // 
             this.btnResolue.BackColor = System.Drawing.Color.DarkCyan;
+            this.btnResolue.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResolue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnResolue.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnResolue.ForeColor = System.Drawing.Color.White;
@@ -102,10 +113,12 @@
             this.btnResolue.TabIndex = 0;
             this.btnResolue.Text = "Résolue";
             this.btnResolue.UseVisualStyleBackColor = false;
+            this.btnResolue.Click += new System.EventHandler(this.btnResolue_Click);
             // 
             // btnFerme
             // 
             this.btnFerme.BackColor = System.Drawing.Color.DarkRed;
+            this.btnFerme.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFerme.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFerme.Font = new System.Drawing.Font("Nirmala UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFerme.ForeColor = System.Drawing.Color.White;
@@ -115,6 +128,7 @@
             this.btnFerme.TabIndex = 0;
             this.btnFerme.Text = "Fermée";
             this.btnFerme.UseVisualStyleBackColor = false;
+            this.btnFerme.Click += new System.EventHandler(this.btnFerme_Click);
             // 
             // lblStatue
             // 
@@ -127,13 +141,13 @@
             this.lblStatue.TabIndex = 1;
             this.lblStatue.Text = "Statue de Ticket";
             // 
-            // comboBox1
+            // comboBoxStatue
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(36, 207);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 21);
-            this.comboBox1.TabIndex = 2;
+            this.comboBoxStatue.FormattingEnabled = true;
+            this.comboBoxStatue.Location = new System.Drawing.Point(36, 207);
+            this.comboBoxStatue.Name = "comboBoxStatue";
+            this.comboBoxStatue.Size = new System.Drawing.Size(160, 21);
+            this.comboBoxStatue.TabIndex = 2;
             // 
             // label1
             // 
@@ -278,56 +292,85 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Statues";
             // 
-            // guna2DataGridView1
+            // lblTousTickets
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblTousTickets.AutoSize = true;
+            this.lblTousTickets.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTousTickets.Font = new System.Drawing.Font("Nirmala UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTousTickets.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblTousTickets.Location = new System.Drawing.Point(242, 213);
+            this.lblTousTickets.Name = "lblTousTickets";
+            this.lblTousTickets.Size = new System.Drawing.Size(91, 15);
+            this.lblTousTickets.TabIndex = 30;
+            this.lblTousTickets.Text = "Tous les tickets";
+            // 
+            // guna2DataGridViewStatue
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(196)))));
+            this.guna2DataGridViewStatue.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.guna2DataGridViewStatue.BackgroundColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.guna2DataGridViewStatue.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(192)))), ((int)(((byte)(7)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.guna2DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.guna2DataGridViewStatue.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.guna2DataGridViewStatue.ColumnHeadersHeight = 4;
+            this.guna2DataGridViewStatue.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(215)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(89)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(245, 238);
-            this.guna2DataGridView1.Name = "guna2DataGridView1";
-            this.guna2DataGridView1.RowHeadersVisible = false;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(603, 260);
-            this.guna2DataGridView1.TabIndex = 27;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.guna2DataGridView1.ThemeStyle.BackColor = System.Drawing.Color.LightGoldenrodYellow;
-            this.guna2DataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 4;
-            this.guna2DataGridView1.ThemeStyle.ReadOnly = false;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 22;
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.guna2DataGridViewStatue.DefaultCellStyle = dataGridViewCellStyle3;
+            this.guna2DataGridViewStatue.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(235)))), ((int)(((byte)(177)))));
+            this.guna2DataGridViewStatue.Location = new System.Drawing.Point(245, 243);
+            this.guna2DataGridViewStatue.Name = "guna2DataGridViewStatue";
+            this.guna2DataGridViewStatue.RowHeadersVisible = false;
+            this.guna2DataGridViewStatue.Size = new System.Drawing.Size(603, 237);
+            this.guna2DataGridViewStatue.TabIndex = 31;
+            this.guna2DataGridViewStatue.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Ember;
+            this.guna2DataGridViewStatue.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(248)))), ((int)(((byte)(196)))));
+            this.guna2DataGridViewStatue.ThemeStyle.AlternatingRowsStyle.Font = null;
+            this.guna2DataGridViewStatue.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+            this.guna2DataGridViewStatue.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+            this.guna2DataGridViewStatue.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+            this.guna2DataGridViewStatue.ThemeStyle.BackColor = System.Drawing.Color.LightGoldenrodYellow;
+            this.guna2DataGridViewStatue.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(235)))), ((int)(((byte)(177)))));
+            this.guna2DataGridViewStatue.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(192)))), ((int)(((byte)(7)))));
+            this.guna2DataGridViewStatue.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.guna2DataGridViewStatue.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2DataGridViewStatue.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+            this.guna2DataGridViewStatue.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            this.guna2DataGridViewStatue.ThemeStyle.HeaderStyle.Height = 4;
+            this.guna2DataGridViewStatue.ThemeStyle.ReadOnly = false;
+            this.guna2DataGridViewStatue.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(215)))));
+            this.guna2DataGridViewStatue.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.guna2DataGridViewStatue.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2DataGridViewStatue.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+            this.guna2DataGridViewStatue.ThemeStyle.RowsStyle.Height = 22;
+            this.guna2DataGridViewStatue.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(213)))), ((int)(((byte)(89)))));
+            this.guna2DataGridViewStatue.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.guna2DataGridViewStatue.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridViewStatue_CellContentClick);
+            // 
+            // gestionTicketDataSet3BindingSource
+            // 
+            this.gestionTicketDataSet3BindingSource.DataSource = this.gestionTicketDataSet3;
+            this.gestionTicketDataSet3BindingSource.Position = 0;
+            // 
+            // gestionTicketDataSet3
+            // 
+            this.gestionTicketDataSet3.DataSetName = "GestionTicketDataSet3";
+            this.gestionTicketDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // ticketTblTableAdapter
+            // 
+            this.ticketTblTableAdapter.ClearBeforeFill = true;
             // 
             // formStatue
             // 
@@ -335,13 +378,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(888, 521);
-            this.Controls.Add(this.guna2DataGridView1);
+            this.Controls.Add(this.guna2DataGridViewStatue);
+            this.Controls.Add(this.lblTousTickets);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxStatue);
             this.Controls.Add(this.lblStatue);
             this.Controls.Add(this.btnFerme);
             this.Controls.Add(this.btnResolue);
@@ -362,7 +406,9 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridViewStatue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet3BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,7 +421,7 @@
         private System.Windows.Forms.Button btnResolue;
         private System.Windows.Forms.Button btnFerme;
         private System.Windows.Forms.Label lblStatue;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxStatue;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -389,6 +435,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label8;
-        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private System.Windows.Forms.Label lblTousTickets;
+        private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridViewStatue;
+        private System.Windows.Forms.BindingSource gestionTicketDataSet3BindingSource;
+        private GestionTicketDataSet3 gestionTicketDataSet3;
+        private GestionTicketDataSet3TableAdapters.TicketTblTableAdapter ticketTblTableAdapter;
     }
 }
