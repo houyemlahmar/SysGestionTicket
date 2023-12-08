@@ -1,24 +1,7 @@
-﻿using Guna.UI2.WinForms;
-using Guna.UI2.WinForms.Suite;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Data.Entity;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using TheArtOfDevHtmlRenderer.Adapters;
-using static Guna.UI2.Native.WinApi;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace SysGestionTicket
 {
@@ -51,12 +34,13 @@ namespace SysGestionTicket
 
         private void formTicket_Load(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'gestionTicketDataSet3.TicketTbl'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.ticketTblTableAdapter.Fill(this.gestionTicketDataSet3.TicketTbl);
+            // TODO: cette ligne de code charge les données dans la table 'gestionTicketDataSet.TicketTbl'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.ticketTblTableAdapter1.Fill(this.gestionTicketDataSet.TicketTbl);
+
             ListerTicket();
             LoadComboBoxOptions();
             ClearFormFields();
-           
+
         }
 
         private void txtRecherche_TextChanged(object sender, EventArgs e)
@@ -133,7 +117,7 @@ namespace SysGestionTicket
                 {
                     con.Open();
 
-                    string query = "INSERT INTO TicketTbl (Numticket, Titre, Priorite, Statue, Description,Date_Creation, Id_utilisateur)" + " VALUES (@NumTicket, @Titre, @Priorite, @Statue, @Description,GETDATE(), @Id_utilisateur)";
+                    string query = "INSERT INTO TicketTbl (Numticket, Titre, Priorite, Statut, Description,Date_Creation, Id_utilisateur)" + " VALUES (@NumTicket, @Titre, @Priorite, @Statut, @Description,GETDATE(), @Id_utilisateur)";
 
                     using (SqlCommand cmd = new SqlCommand(query, con))
                     {
@@ -141,7 +125,7 @@ namespace SysGestionTicket
                         cmd.Parameters.AddWithValue("@Titre", Titre);
                         cmd.Parameters.AddWithValue("@Priorite", Priorite);
                         cmd.Parameters.AddWithValue("@Description", Description);
-                        cmd.Parameters.AddWithValue("@Statue", "Nouveau");
+                        cmd.Parameters.AddWithValue("@Statut", "Nouveau");
                         cmd.Parameters.AddWithValue("@Id_utilisateur", Id_utilisateur);
                         cmd.Parameters.AddWithValue("@Date_Creation", Date_Creation);
                         cmd.ExecuteNonQuery();
@@ -190,7 +174,7 @@ namespace SysGestionTicket
                         DataTable dt = new DataTable();
                         da.Fill(dt);
                         ListeTicket.DataSource = dt;
-                        
+
                         con.Close();
                     }
                 }
@@ -261,7 +245,7 @@ namespace SysGestionTicket
         {
 
         }
-       
+
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
             ListeTicket.Columns.Clear();

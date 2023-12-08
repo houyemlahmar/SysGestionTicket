@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheArtOfDevHtmlRenderer.Adapters;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace SysGestionTicket
 {
@@ -26,15 +18,16 @@ namespace SysGestionTicket
         public formPriorite()
         {
             InitializeComponent();
-           
+
         }
 
         private void formPriorite_Load(object sender, EventArgs e)
         {
-            // TODO: cette ligne de code charge les données dans la table 'gestionTicketDataSet3.TicketTbl'. Vous pouvez la déplacer ou la supprimer selon les besoins.
-            this.ticketTblTableAdapter.Fill(this.gestionTicketDataSet3.TicketTbl);
+            // TODO: cette ligne de code charge les données dans la table 'gestionTicketDataSet4.TicketTbl'. Vous pouvez la déplacer ou la supprimer selon les besoins.
+            this.ticketTblTableAdapter1.Fill(this.gestionTicketDataSet4.TicketTbl);
 
-            getPrioriteTicket(); 
+
+            getPrioriteTicket();
             ListerTicket();
             LoadComboBoxOptions();
 
@@ -69,7 +62,7 @@ namespace SysGestionTicket
                         dataAdapter.Fill(dataTable);
                         guna2DataGridViewPrio.DataSource = dataTable;
 
-                        
+
                         con.Close();
                     }
                 }
@@ -113,8 +106,8 @@ namespace SysGestionTicket
             SqlDataAdapter da = new SqlDataAdapter();
             SqlCommand cmd = new SqlCommand();
             DataTable dtr = new DataTable("reports");
-           //this.dtr.Clear0)
-            da = new SqlDataAdapter("SELECT * FROM TicketTbl WHERE Priorite='" + "Failble"+"'" ,Con);
+            //this.dtr.Clear0)
+            da = new SqlDataAdapter("SELECT * FROM TicketTbl WHERE Priorite='" + "Failble" + "'", Con);
             dtr.Clear();
             da.Fill(dtr);
             guna2DataGridViewPrio.DataSource = null;
@@ -124,7 +117,7 @@ namespace SysGestionTicket
             dtr = SortedDataView.ToTable();
             guna2DataGridViewPrio.DataSource = dtr;
             lblTousTickets1.Text = "Tickets de faible priorité";
-            
+
 
         }
 
@@ -139,7 +132,7 @@ namespace SysGestionTicket
             SqlCommand cmd = new SqlCommand();
             DataTable dtr = new DataTable("reports");
             //this.dtr.Clear0)
-            da = new SqlDataAdapter("SELECT * FROM TicketTbl where Priorite='" + "Moyenne"+"'", Con);
+            da = new SqlDataAdapter("SELECT * FROM TicketTbl where Priorite='" + "Moyenne" + "'", Con);
             da.Fill(dtr);
             guna2DataGridViewPrio.DataSource = dtr;
             DataView SortedDataView = new DataView();
@@ -183,5 +176,5 @@ namespace SysGestionTicket
             guna2DataGridViewPrio.DataSource = dtr;
             lblTousTickets1.Text = "Tickets urgente";
         }
-    }  
+    }
 }

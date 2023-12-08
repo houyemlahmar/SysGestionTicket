@@ -84,6 +84,12 @@
       <DependentUpon>dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="fonction.cs" />
+    <Compile Include="formAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAdmin.Designer.cs">
+      <DependentUpon>formAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="formPriorite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,11 +108,11 @@
     <Compile Include="formLogin.Designer.cs">
       <DependentUpon>formLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="formStatue.cs">
+    <Compile Include="formStatut.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="formStatue.Designer.cs">
-      <DependentUpon>formStatue.cs</DependentUpon>
+    <Compile Include="formStatut.Designer.cs">
+      <DependentUpon>formStatut.cs</DependentUpon>
     </Compile>
     <Compile Include="formTicket.cs">
       <SubType>Form</SubType>
@@ -130,15 +136,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>gestion.edmx</DependentUpon>
     </Compile>
+    <Compile Include="GestionTicketDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionTicketDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GestionTicketDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GestionTicketDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GestionTicketDataSet3.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionTicketDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionTicketDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GestionTicketDataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="dashboard.resx">
       <DependentUpon>dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAdmin.resx">
+      <DependentUpon>formAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formPriorite.resx">
       <DependentUpon>formPriorite.cs</DependentUpon>
@@ -157,8 +181,8 @@
     <EmbeddedResource Include="formLogin.resx">
       <DependentUpon>formLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="formStatue.resx">
-      <DependentUpon>formStatue.cs</DependentUpon>
+    <EmbeddedResource Include="formStatut.resx">
+      <DependentUpon>formStatut.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formTicket.resx">
       <DependentUpon>formTicket.cs</DependentUpon>
@@ -180,6 +204,17 @@
     <None Include="gestion.edmx.diagram">
       <DependentUpon>gestion.edmx</DependentUpon>
     </None>
+    <None Include="GestionTicketDataSet.xsc">
+      <DependentUpon>GestionTicketDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionTicketDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionTicketDataSet.xss">
+      <DependentUpon>GestionTicketDataSet.xsd</DependentUpon>
+    </None>
     <None Include="GestionTicketDataSet1.xsc">
       <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
     </None>
@@ -191,6 +226,17 @@
     <None Include="GestionTicketDataSet1.xss">
       <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="GestionTicketDataSet2.xsc">
+      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionTicketDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionTicketDataSet2.xss">
+      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
+    </None>
     <None Include="GestionTicketDataSet3.xsc">
       <DependentUpon>GestionTicketDataSet3.xsd</DependentUpon>
     </None>
@@ -201,6 +247,17 @@
     </None>
     <None Include="GestionTicketDataSet3.xss">
       <DependentUpon>GestionTicketDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet4.xsc">
+      <DependentUpon>GestionTicketDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="GestionTicketDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GestionTicketDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GestionTicketDataSet4.xss">
+      <DependentUpon>GestionTicketDataSet4.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

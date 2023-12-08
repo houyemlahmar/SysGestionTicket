@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 
 namespace SysGestionTicket
@@ -67,7 +61,7 @@ namespace SysGestionTicket
 
         }
 
-       
+
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
@@ -81,7 +75,7 @@ namespace SysGestionTicket
 
         private void dashboard_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void fillByToolStripButton_Click(object sender, EventArgs e)
@@ -103,7 +97,7 @@ namespace SysGestionTicket
         }
 
 
-        
+
 
         private void btnDecnx_Click(object sender, EventArgs e)
         {
@@ -111,7 +105,7 @@ namespace SysGestionTicket
             this.Hide();
         }
 
-       
+
 
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -134,7 +128,7 @@ namespace SysGestionTicket
 
         }
 
-       
+
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
@@ -179,7 +173,7 @@ namespace SysGestionTicket
 
         private void gunabtnStat_Click(object sender, EventArgs e)
         {
-            
+
             flowLayoutPanel1.Height = gunabtnNotif.Height;
             flowLayoutPanel1.Top = gunabtnNotif.Top;
             gunabtnNotif.BackColor = Color.FromArgb(46, 51, 73);

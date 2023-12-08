@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SysGestionTicket
 {
@@ -23,24 +18,24 @@ namespace SysGestionTicket
             Cmd = new SqlCommand();
             Cmd.Connection = Con;
         }
-        public DataTable RecupererDonnees (string Req)
+        public DataTable RecupererDonnees(string Req)
         {
-            dt= new DataTable();
-            sda= new SqlDataAdapter(Req, ConString);
-            sda.Fill (dt);
+            dt = new DataTable();
+            sda = new SqlDataAdapter(Req, ConString);
+            sda.Fill(dt);
             return dt;
 
         }
 
-        public int EnvoyerDonnees (string Req)
+        public int EnvoyerDonnees(string Req)
         {
             int cnt = 0;
-            if(Con.State== ConnectionState.Closed)
+            if (Con.State == ConnectionState.Closed)
             {
-                Con.Open ();
+                Con.Open();
             }
-            Cmd.CommandText = Req; 
-            Cmd.ExecuteNonQuery ();
+            Cmd.CommandText = Req;
+            Cmd.ExecuteNonQuery();
             return cnt;
         }
     }

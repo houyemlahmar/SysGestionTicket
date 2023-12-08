@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace SysGestionTicket
 {
@@ -23,7 +15,7 @@ namespace SysGestionTicket
             InitializeComponent();
             ConString = "Data Source=dell\\sqlexpress;Initial Catalog=GestionTicket;Integrated Security=True";
             Con = new SqlConnection(ConString);
-                        
+
         }
 
         private void Label3_Click(object sender, EventArgs e)
@@ -44,21 +36,48 @@ namespace SysGestionTicket
             }
 
 
-            string connecter = "SELECT * FROM SignUpTbl where e_mail= '" + textEmail.Text +"' and MotDePasse= '"+textPassword.Text+"'";
-                 Cmd = new SqlCommand(connecter, Con);
+            string connecter = "SELECT * FROM SignUpTbl where e_mail= '" + textEmail.Text + "' and MotDePasse= '" + textPassword.Text + "'";
+            Cmd = new SqlCommand(connecter, Con);
             SqlDataReader reader = await Cmd.ExecuteReaderAsync();
-            if (reader.Read()== true) {
-                new dashboard().Show();
-                this.Hide();
+            if (reader.Read())
+            {
+                string userEmail = reader["e_mail"].ToString();
 
-            } 
+                // Vérifier si l'utilisateur est administrateur
+                if (userEmail == "admin@gmail.com" && textPassword.Text == "12345")
+                {
+                    formAdmin adminForm = new formAdmin();
+                    adminForm.Show();
+                    this.Hide();
+                }
+                /*
+                 if (userEmail == "houyem@gmail.com" && textPassword.Text == "1234")
+                 {
 
-            else { 
-                MessageBox.Show("E-mail ou mot de passe invalide", "Reéssayer", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                     AcceuilAgent agentForm = new AcceuilAgent();
+                     agentForm.Show();
+                     this.Hide();
+                 }
+                 if (userEmail == "roukaya@gmail.com" && textPassword.Text == "123456")
+                 {
+
+                     AcceuilAgent agentForm = new AcceuilAgent();
+                     agentForm.Show();
+                     this.Hide();
+                 }*/
+
+            }
+
+
+            else
+            {
+                MessageBox.Show("E-mail ou mot de passe invalide", "Reéssayer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textEmail.Text = "";
                 textPassword.Text = "";
 
             }
+
+
             if (Con.State == ConnectionState.Open)
             {
                 Con.Close();
@@ -66,7 +85,7 @@ namespace SysGestionTicket
 
         }
 
-       
+
 
         private void checkBox_CheckedChanged(object sender, EventArgs e)
         {
@@ -78,7 +97,7 @@ namespace SysGestionTicket
             else
             {
                 textPassword.PasswordChar = '*';
-               
+
             }
         }
 
