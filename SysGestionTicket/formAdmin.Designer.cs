@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAdmin));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gunabtnTicket = new Guna.UI2.WinForms.Guna2Button();
             this.gunabtnStatut = new Guna.UI2.WinForms.Guna2Button();
             this.gunabtnPriorite = new Guna.UI2.WinForms.Guna2Button();
@@ -41,7 +39,6 @@
             this.panelForm = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -62,7 +59,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightCyan;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -79,16 +75,6 @@
             this.label4.Size = new System.Drawing.Size(78, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "User name";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(36, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(66, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // gunabtnTicket
             // 
@@ -107,6 +93,7 @@
             this.gunabtnTicket.Size = new System.Drawing.Size(135, 37);
             this.gunabtnTicket.TabIndex = 23;
             this.gunabtnTicket.Text = "Ticket";
+            this.gunabtnTicket.Click += new System.EventHandler(this.gunabtnTicket_Click);
             // 
             // gunabtnStatut
             // 
@@ -126,6 +113,7 @@
             this.gunabtnStatut.TabIndex = 23;
             this.gunabtnStatut.Text = "Statut";
             this.gunabtnStatut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gunabtnStatut.Click += new System.EventHandler(this.gunabtnStatut_Click);
             // 
             // gunabtnPriorite
             // 
@@ -145,6 +133,7 @@
             this.gunabtnPriorite.TabIndex = 23;
             this.gunabtnPriorite.Text = "Gérer les agents";
             this.gunabtnPriorite.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gunabtnPriorite.Click += new System.EventHandler(this.gunabtnPriorite_Click);
             // 
             // gunabtnNotif
             // 
@@ -164,6 +153,7 @@
             this.gunabtnNotif.TabIndex = 23;
             this.gunabtnNotif.Text = "Statistique";
             this.gunabtnNotif.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gunabtnNotif.Click += new System.EventHandler(this.gunabtnNotif_Click);
             // 
             // gunabtnDecnx
             // 
@@ -183,9 +173,11 @@
             this.gunabtnDecnx.TabIndex = 24;
             this.gunabtnDecnx.Text = "Déconnexion";
             this.gunabtnDecnx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.gunabtnDecnx.Click += new System.EventHandler(this.gunabtnDecnx_Click);
             // 
             // panelForm
             // 
+            this.panelForm.BackColor = System.Drawing.Color.White;
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelForm.Location = new System.Drawing.Point(146, 0);
             this.panelForm.Name = "panelForm";
@@ -205,7 +197,6 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,7 +205,6 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
         private Guna.UI2.WinForms.Guna2Button gunabtnTicket;
         private Guna.UI2.WinForms.Guna2Button gunabtnStatut;

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -43,18 +42,15 @@
             this.ticketTblTableAdapter = new SysGestionTicket.GestionTicketDataSet1TableAdapters.TicketTblTableAdapter();
             this.panelForm = new System.Windows.Forms.Panel();
             this.guna2AnimateWindow1 = new Guna.UI2.WinForms.Guna2AnimateWindow(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ticketTblBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightCyan;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
@@ -214,16 +210,6 @@
             this.panelForm.TabIndex = 7;
             this.panelForm.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(35, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(66, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
             // dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,7 +229,6 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ticketTblBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestionTicketDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -262,6 +247,5 @@
         private Guna.UI2.WinForms.Guna2Button gunabtnStatut;
         private Guna.UI2.WinForms.Guna2Button gunabtnPriorite;
         private Guna.UI2.WinForms.Guna2Button gunabtnDecnx;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -45,7 +45,7 @@ namespace SysGestionTicket
             gunabtnTicket.BackColor = Color.FromArgb(46, 51, 73);
 
             this.panelForm.Controls.Clear();
-            formTicket formTicket_vrb = new formTicket() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            formTicketA formTicket_vrb = new formTicketA() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             formTicket_vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelForm.Controls.Add(formTicket_vrb);
             formTicket_vrb.Show();
@@ -64,7 +64,7 @@ namespace SysGestionTicket
             gunabtnStatut.BackColor = Color.FromArgb(46, 51, 73);
 
             this.panelForm.Controls.Clear();
-            formStatut formTicket_vrb = new formStatut() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+            formStatutA formTicket_vrb = new formStatutA() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
             formTicket_vrb.FormBorderStyle = FormBorderStyle.None;
             this.panelForm.Controls.Add(formTicket_vrb);
             formTicket_vrb.Show();
@@ -94,6 +94,17 @@ namespace SysGestionTicket
 
         private void formAgent_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void gunabtnTicket_leave(object sender, EventArgs e)
+        {
+            gunabtnTicket.BackColor = Color.FromArgb(24, 30, 54);
+        }
+
+        private void gunabtnStatut_leave(object sender, EventArgs e)
+        {
+            gunabtnStatut.BackColor = Color.FromArgb(24, 30, 54);
 
         }
     }

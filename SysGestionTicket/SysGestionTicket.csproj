@@ -96,6 +96,12 @@
     <Compile Include="formAgent.Designer.cs">
       <DependentUpon>formAgent.cs</DependentUpon>
     </Compile>
+    <Compile Include="formGererAgent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formGererAgent.Designer.cs">
+      <DependentUpon>formGererAgent.cs</DependentUpon>
+    </Compile>
     <Compile Include="formPriorite.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,17 +120,35 @@
     <Compile Include="formLogin.Designer.cs">
       <DependentUpon>formLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="formStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStat.Designer.cs">
+      <DependentUpon>formStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="formStatut.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formStatut.Designer.cs">
       <DependentUpon>formStatut.cs</DependentUpon>
     </Compile>
+    <Compile Include="formStatutA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formStatutA.Designer.cs">
+      <DependentUpon>formStatutA.cs</DependentUpon>
+    </Compile>
     <Compile Include="formTicket.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="formTicket.Designer.cs">
       <DependentUpon>formTicket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formTicketA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formTicketA.Designer.cs">
+      <DependentUpon>formTicketA.cs</DependentUpon>
     </Compile>
     <Compile Include="functions.cs" />
     <Compile Include="gestion.Context.cs">
@@ -152,6 +176,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionTicketDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GestionTicketDataSet2.cs">
+      <DependentUpon>GestionTicketDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GestionTicketDataSet2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -161,6 +188,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GestionTicketDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="GestionTicketDataSet4.cs">
+      <DependentUpon>GestionTicketDataSet4.xsd</DependentUpon>
     </Compile>
     <Compile Include="GestionTicketDataSet4.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -193,8 +223,14 @@
     <EmbeddedResource Include="formStatut.resx">
       <DependentUpon>formStatut.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="formStatutA.resx">
+      <DependentUpon>formStatutA.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formTicket.resx">
       <DependentUpon>formTicket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formTicketA.resx">
+      <DependentUpon>formTicketA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

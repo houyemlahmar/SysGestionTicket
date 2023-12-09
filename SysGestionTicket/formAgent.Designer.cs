@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAgent));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.labelUserName = new System.Windows.Forms.Label();
             this.gunabtnTicket = new Guna.UI2.WinForms.Guna2Button();
             this.gunabtnStatut = new Guna.UI2.WinForms.Guna2Button();
@@ -39,7 +37,6 @@
             this.panelForm = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -58,22 +55,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightCyan;
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.labelUserName);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(143, 98);
             this.panel1.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(36, 9);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(66, 57);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
             // 
             // labelUserName
             // 
@@ -105,6 +91,7 @@
             this.gunabtnTicket.TabIndex = 23;
             this.gunabtnTicket.Text = "Ticket";
             this.gunabtnTicket.Click += new System.EventHandler(this.gunabtnTicket_Click);
+            this.gunabtnTicket.Leave += new System.EventHandler(this.gunabtnTicket_leave);
             // 
             // gunabtnStatut
             // 
@@ -125,6 +112,7 @@
             this.gunabtnStatut.Text = "Statut";
             this.gunabtnStatut.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.gunabtnStatut.Click += new System.EventHandler(this.gunabtnStatut_Click);
+            this.gunabtnStatut.Leave += new System.EventHandler(this.gunabtnStatut_leave);
             // 
             // gunabtnDecnx
             // 
@@ -169,7 +157,6 @@
             this.flowLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -178,7 +165,6 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelUserName;
         private Guna.UI2.WinForms.Guna2Button gunabtnTicket;
         private Guna.UI2.WinForms.Guna2Button gunabtnStatut;

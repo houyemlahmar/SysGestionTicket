@@ -73,18 +73,38 @@ namespace SysGestionTicket
             }
 
         }
+        private void UpdatePriorite(int Id, string newPriorite)
+        {
+            using (SqlConnection connection = new SqlConnection(Con))
+            {
+                connection.Open();
+
+                using (SqlCommand command = new SqlCommand("UPDATE TicketTbl SET Priorite = @Priorite WHERE Id = @Id", connection))
+                {
+                    command.Parameters.AddWithValue("@Priorite", newPriorite);
+                    command.Parameters.AddWithValue("@Id", Id);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int i = guna2DataGridViewPrio.CurrentRow.Index;
-            ds = new DataSet();
-            da = new SqlDataAdapter("UPDATE TicketTbl set Priorite ='" + comboBoxPriorite.Text + "' WHERE Id ='" + guna2DataGridViewPrio[0, i].Value.ToString() + "'", Con);
-            da.Fill(ds, "TicketTbl");
-            comboBoxPriorite.Text = "";
-            ListerTicket();
-            getPrioriteTicket();
-            LoadComboBoxOptions();
-            MessageBox.Show("Priorité modifiée avec succées");
+            if (guna2DataGridViewPrio.SelectedRows.Count > 0)
+            {
+                // Récupérer l'ID du ticket sélectionné
+                int selectedId = Convert.ToInt32(guna2DataGridViewPrio.SelectedRows[0].Cells["Id"].Value);
+
+                // Récupérer la nouvelle priorité à partir du ComboBox
+                string newPriorite = comboBoxPriorite.SelectedItem.ToString();
+
+                // Mettre à jour la priorité dans la base de données
+                UpdatePriorite(selectedId, newPriorite);
+
+                // Rafraîchir le tableau après la mise à jour
+                getPrioriteTicket();
+            }
 
         }
         private void LoadComboBoxOptions()
@@ -98,7 +118,14 @@ namespace SysGestionTicket
 
         private void guna2DataGridViewPrio_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (guna2DataGridViewPrio.SelectedRows.Count > 0)
+            {
+                // Récupérer l'ID du ticket sélectionné
+                int selectedId = Convert.ToInt32(guna2DataGridViewPrio.SelectedRows[0].Cells["Id"].Value);
 
+                // Afficher la priorité du ticket dans le ComboBox
+                comboBoxPriorite.SelectedItem = guna2DataGridViewPrio.SelectedRows[0].Cells["Priorite"].Value.ToString();
+            }
         }
 
         private void btnFaible_Click(object sender, EventArgs e)
